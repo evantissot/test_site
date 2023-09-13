@@ -1,0 +1,16 @@
+---
+layout: base
+---
+{% assign project_split = page.name | split: "." %}
+{% assign project_name = project_split[0] %}
+{% assign sorted = site[project_name] | reverse %}
+<h1>{{ project_name | capitalize }}</h1>
+<ul>
+
+ <ul class="post-list">
+   <li>
+{% for b in sorted %}
+<h4><a href="{{ site.baseurl }}{{ b.url }}">{{ b.title}}</a></h4>
+{% endfor %}
+   </li>
+ </ul>
